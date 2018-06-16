@@ -48,21 +48,25 @@ public class MainActivity extends AppCompatActivity {
 
     // Utworzenie obiektu wykonującego zapytania do API
     private void createStackOverflowAPI() {
+        // Filtr GSON będzie automatycznie tłumaczył pobrany plik JSON na obiekty Javy
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .create();
 
+        // Fabryka buduje obiekt retrofit służący do pobierania danych
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(StackOverflowAPI.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
+        // Fabryka buduje obiekt dla naszego API
         stackOverflowAPI = retrofit.create(StackOverflowAPI.class);
     }
 
 
     // Uruchomienie zapytania do API po kliknięciu przycisku.
     // Tytuł szukanego zapytania pochodzi z pola tekstowego editQueryString
+    // Klasa QuestionsCallback obsłuży metodę zwrotną
     public void setCatalogContent(View button) {
         String title = editQueryString.getText().toString();
         stackOverflowAPI.getQuestions(title).enqueue(questionsCallback);
@@ -76,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onResponse(Call<QuestionsList<Question>> call, Response<QuestionsList<Question>> response) {
             if (response.isSuccessful()) {
-                // GSON automatycznie tłumaczy pobrany kod JSON na obiekty Javy
+                // Pobranie danych z odpowiedzi serwera
                 questions = response.body();
+
+                // Odświeżenie widoku listy i informacji o pobranych danych
                 ((ItemQuestionAdapter)questionsListView.getAdapter()).notifyDataSetChanged();
                 questionsListView.setSelectionAfterHeaderView();
                 questionsFound.setText("We have found " + questions.items.size() + " questions");
@@ -125,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
             TextView questionLink;
             questionLink = rowView.findViewById(R.id.link);
             TextView questionId = rowView.findViewById(R.id.question_id);
-            Question iq = questions.items.get(position);
-            questionText.setText(iq.getTitle());
-            questionLink.setText(iq.getLink());
-            questionId.setText(Long.toString(iq.getId()));
+            Question currentQuestion = questions.items.get(position);
+            questionText.setText(currentQuestion.getTitle());
+            questionLink.setText(currentQuestion.getLink());
+            questionId.setText(Long.toString(currentQuestion.getId()));
 
             return rowView;
         }
