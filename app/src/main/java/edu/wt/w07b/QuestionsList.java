@@ -4,6 +4,6 @@ import java.util.List;
 
 // Klasa przechowująca tablicę odpowiedzi otrzymaną ze StackOverflow
 
-public class ListWrapper<T> {
+public class QuestionsList<T> {
     List<T> items;
 }

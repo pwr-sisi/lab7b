@@ -2,7 +2,7 @@ package edu.wt.w07b;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ItemQuestion {
+public class Question {
     public String title;
     public String link;
 
@@ -14,10 +14,10 @@ public class ItemQuestion {
         return(title);
     }
 
-    public ItemQuestion() {
+    public Question() {
     }
 
-    public ItemQuestion(String title, String link, long id) {
+    public Question(String title, String link, long id) {
         this.setTitle(title);
         this.setLink(link);
         this.setId(id);
