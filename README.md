@@ -1,8 +1,8 @@
-# sisi-w07b
+# SiSI Lab7b
 
-Aplikacja działa tak samo jak aplikacja W07A, pobierając z witryny StackOverflow
+Aplikacja działa tak samo jak aplikacja Lab7a, pobierając z witryny StackOverflow
 listę linków do pytań mających w tytule słowa kluczowe podane przez użytkownika.
-Tym razem do pobierania danych wykorzystywana jest  biblioteka Retrofit2.
+W tej wersji do pobierania danych wykorzystywana jest  biblioteka Retrofit2.
 
 ## Zadania
 - Zaimportuj projekt do AndroidStudio
@@ -12,4 +12,5 @@ Tym razem do pobierania danych wykorzystywana jest  biblioteka Retrofit2.
   - jakie zmiany wprowadzono istniejących klasach: MainActivity i ItemQuestion
   - jakie nowe klasy pojawiły się w projekcie: StackOverflowAPI i ListWrapper
   - jakie nowe wpisy pojawiły się w pliku build.gradle(app)
-- Korzystając z podanych przykładów przerób aplikację z poprzedniego laboratorium tak, aby używała biblioteki Retrofit2.
+
+- Bazując na przykładach Lab7a i Lab7b napisz własną aplikację łączącą się w Twoim API zainstalowanym w ramach laboratorium 6 na witrynie Heroku.
