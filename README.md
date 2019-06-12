@@ -8,7 +8,7 @@ W tej wersji do pobierania danych wykorzystywana jest  biblioteka Retrofit2.
 - Zaimportuj projekt do AndroidStudio
 - Uruchom aplikację na emulatorze Androida
 - Sprawdź czy po wpisaniu jakiegoś hasła aplikacja pobiera dane z serwisu StackOverflow
-- Porównaj aplikację z projektem W07A:
+- Porównaj aplikację z projektem Lab7a:
   - jakie zmiany wprowadzono istniejących klasach: MainActivity i ItemQuestion
   - jakie nowe klasy pojawiły się w projekcie: StackOverflowAPI i ListWrapper
   - jakie nowe wpisy pojawiły się w pliku build.gradle(app)
